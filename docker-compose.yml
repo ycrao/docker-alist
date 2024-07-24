@@ -1,0 +1,17 @@
+name: 'alist'
+services:
+  alist:
+    image: 'xhofe/alist-aria2:latest'
+    container_name: alist
+    # volumes:
+      #- '/Users/dayi/srv/alist/data:/opt/alist/data'
+    ports:
+      - '5244:5244'
+      - '6800:6800'
+    environment:
+      # ref: https://alist.nn.ci/zh/guide/install/docker.html
+      - PUID=0
+      - PGID=0
+      - UMASK=022
+      - TZ=Asia/Shanghai
+    restart: unless-stopped
